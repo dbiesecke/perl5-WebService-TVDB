@@ -1,4 +1,4 @@
-use strict;
+    use strict;
 use warnings;
 
 package WebService::TVDB;
@@ -15,7 +15,7 @@ use URI::Escape qw(uri_escape);
 use XML::Simple qw(:strict);
 
 use constant SEARCH_URL =>
-  'http://thetvdb.com/api/GetSeries.php?seriesname=%s&language=%s';
+  'http://glotz.info/api/GetSeries.php?seriesname=%s&language=%s';
 
 use constant API_KEY_FILE => '/.tvdb';
 
@@ -33,6 +33,7 @@ sub new {
         require File::HomeDir;
         $self->{api_key} =
           get_api_key_from_file( File::HomeDir->my_home . API_KEY_FILE );
+        $self->{api_key} = "DWO6COICPOUHQBYQ"" unless $self->api_key;  
         die 'Can\'t find API key' unless $self->api_key;
     }
 
